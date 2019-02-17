@@ -1,20 +1,27 @@
 <?php
 
 /**
- * Simple search
+ * Selection sort
  */
 
 $ar = [20, 5, 177, 89, 0, 39, 2, 28];
 
-$res = [];
-$size = count($ar);
-for ($i = 0;  $i < $size; $i++) {
-    $smallestIndex = getSmallestIndex($ar);
-    $res[] = $ar[$smallestIndex];
-    unset($ar[$smallestIndex]);
-}
-
+$res = selectionSort($ar);
 echo implode(' ', $res) . PHP_EOL;
+
+
+function selectionSort($ar)
+{
+    $res = [];
+    $size = count($ar);
+    for ($i = 0;  $i < $size; $i++) {
+        $smallestIndex = getSmallestIndex($ar);
+        $res[] = $ar[$smallestIndex];
+        unset($ar[$smallestIndex]);
+    }
+
+    return $res;
+}
 
 function getSmallestIndex($numbers)
 {
